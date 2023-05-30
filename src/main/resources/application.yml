@@ -67,8 +67,8 @@ fs:
       path: xxxxxxxxxxxxxxxxxxx
     #oss配置
     oss:
-      accessKey: LTAI5tHMhHHr3YGMLsSADyEX
-      secretKey: rnJIAcahJyws2D703rSNGtwea2tQCn
-      endpoint: oss-cn-beijing.aliyuncs.com
-      bucket: changan88
-      path: https://changan88.oss-cn-beijing.aliyuncs.com
+      accessKey: 
+      secretKey: 
+      endpoint: 
+      bucket: 
+      path: 
