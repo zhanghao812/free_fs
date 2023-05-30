@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>free-fs-master - 登录</title>
+    <link rel="icon" type="shortcut icon" th:href="@{/assets/img/favicon.ico}"/>
+    <link rel="stylesheet" th:href="@{/assets/modules/layui/css/layui.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/login.css}">
+    <!-- Custom fonts for this template-->
+    <link th:href="@{/assets/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link th:href="@{/assets/css/sb-admin-2.min.css}" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-primary">
+<div class="container">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">欢迎回来！</h1>
+                                </div>
+                                <!--提交表单-->
+                                <form class="layui-form">
+                                    <div class="layui-form-item layui-input-icon-group">
+                                        <i class="layui-icon layui-icon-username"></i>
+                                        <input class="layui-input" name="username" placeholder="请输入登录账号" autocomplete="off"
+                                               lay-verType="tips" lay-verify="required" required/>
+                                    </div>
+                                    <div class="layui-form-item layui-input-icon-group">
+                                        <i class="layui-icon layui-icon-password"></i>
+                                        <input class="layui-input" name="password" placeholder="请输入登录密码" type="password"
+                                               lay-verType="tips" lay-verify="required" required/>
+                                    </div>
+                                    <div class="layui-form-item layui-input-icon-group login-captcha-group">
+                                        <i class="layui-icon layui-icon-auz"></i>
+                                        <input class="layui-input" name="code" placeholder="请输入验证码" autocomplete="off"
+                                               lay-verType="tips" lay-verify="required" required/>
+                                        <img class="login-captcha" alt=""/>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <input type="checkbox" name="remember" title="记住我" lay-skin="primary">
+                                        <a th:href="@{/reg}" class="layui-link pull-right">注册账号</a>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <button class="layui-btn layui-btn-fluid" lay-filter="loginSubmit" lay-submit>登录</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+<!-- Core plugin JavaScript-->
+<script th:src="@{/assets/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+<!-- Custom scripts for all pages-->
+<script th:src="@{/assets/js/sb-admin-2.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/modules/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/assets/modules/clipboard.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/login.js}"></script>
+
+</body>
+
+</html>

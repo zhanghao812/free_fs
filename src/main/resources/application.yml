@@ -1,0 +1,74 @@
+server:
+  port: 8081
+  undertow:
+    threads:
+      io: 8
+      # 它的值设置取决于系统线程执行任务的阻塞系数，默认值是IO线程数*8
+      worker: 256
+    buffer-size: 2048
+    # 是否分配的直接内存(NIO直接分配的堆外内存)
+    direct-buffers: true
+spring:
+  application:
+    name: free-fs
+  profiles:
+    active: dev
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.free.fs.model
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: NOT_NULL
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+fs:
+  #多租户应用隔离配置
+  tenant:
+    enable: true
+    ignoreTables:
+      - sys_user
+      - sys_user_role
+      - sys_role_auth
+      - sys_role
+      - sys_auth
+
+  # 云存储配置
+  files-server:
+    type: oss
+    local:
+      # 文件上传地址, 这里的意思就是本地模式下，上传的文件会保存到 `uploadPath`路径里，然后通过 `uploadMapping` 映射
+      # 通俗点就是 E:/upload/xxx.jpg 会映射到 http://localhost:8081/uploads/xxx.jpg
+      uploadDir: E:/upload/
+      uploadMapping: /uploads
+    #如配置七牛，需在QiniuAutoConfigure.java配置类中指定自己的七牛云机房区域
+    qiniu:
+      accessKey: xxxxxxxxxxxxxxxxxxx
+      secretKey: xxxxxxxxxxxxxxxxxxx
+      bucket: xxxxxxxxxxxxxxxxxxx
+      path: xxxxxxxxxxxxxxxxxxx
+    #oss配置
+    oss:
+      accessKey: LTAI5tHMhHHr3YGMLsSADyEX
+      secretKey: rnJIAcahJyws2D703rSNGtwea2tQCn
+      endpoint: oss-cn-beijing.aliyuncs.com
+      bucket: changan88
+      path: https://changan88.oss-cn-beijing.aliyuncs.com
